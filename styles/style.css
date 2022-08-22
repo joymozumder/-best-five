@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
+body{
+        font-family: 'Manrope', sans-serif;
+}
+
 #selected-five li{
     padding-left: 18px;
-    padding-bottom: 22px;
+    padding-bottom: 21px;
 }

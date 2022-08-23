@@ -13,7 +13,7 @@ function getInputElementValueById(elementId)
     if(isNaN(elementValueString) || elementValueString === ''){
         return "NaN";
     }
-
+    
     const elementValue = parseFloat(elementValueString);
     return elementValue;
 }
@@ -65,3 +65,17 @@ document.getElementById('calculate-player-expenses-btn').addEventListener('click
     }
 });
 
+document.getElementById('calculate-total-btn').addEventListener('click', function(){
+    const playerExpenses = parseFloat(document.getElementById('total-player-expenses').innerText);
+    const managerBudget = getInputElementValueById('manager-budget-field');
+    const coachBudget = getInputElementValueById('coach-budget-field');
+    if(playerExpenses !== "NaN" && managerBudget !== "NaN" && coachBudget !== "NaN")
+    {
+        const totalBudget = playerExpenses + managerBudget + coachBudget;
+        setTextElementValueById('total-budget', totalBudget);
+    }
+    else{
+        setTextElementValueById('total-budget', 0);
+        alert('Please provide a valid input');
+    }
+});

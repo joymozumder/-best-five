@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 
-body{
-        font-family: 'Manrope', sans-serif;
+body {
+    font-family: 'Manrope', sans-serif;
 }
 
-#banner-heading{
+#banner-heading {
     font-family: 'Berkshire Swash', cursive;
 }
 
-#selected-five li{
+#selected-five li {
     padding-left: 18px;
     padding-bottom: 21px;
 }

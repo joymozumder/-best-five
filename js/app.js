@@ -4,6 +4,26 @@ function countSelectedPlayers()
     return totalSelectedPlayers;
 }
 
+function getInputElementValueById(elementId)
+{
+    const element = document.getElementById(elementId);
+    const elementValueString = element.value;
+
+    //validity check
+    if(isNaN(elementValueString) || elementValueString === ''){
+        return "NaN";
+    }
+
+    const elementValue = parseFloat(elementValueString);
+    return elementValue;
+}
+
+function setTextElementValueById(elementId, value)
+{
+    const element = document.getElementById(elementId);
+    element.innerText = value;       
+}
+
 document.getElementById('all-players').addEventListener('click', function(event){
     if(event.target.nodeName === 'BUTTON'){
         const selectedPlayerName = event.target.parentNode.parentNode.children[0].innerText;
@@ -23,3 +43,25 @@ document.getElementById('all-players').addEventListener('click', function(event)
         }
     }
 });
+
+document.getElementById('calculate-player-expenses-btn').addEventListener('click', function(){
+    const totalSelectedPlayers = countSelectedPlayers();
+    
+    if(totalSelectedPlayers === 0)
+    {
+        alert("You haven't selected any player yet");
+    }
+    else
+    {
+        const perPlayerBudget = getInputElementValueById('per-player-budget-field');
+        if (perPlayerBudget !== "NaN") {
+            const totalPlayerExpenses = perPlayerBudget * totalSelectedPlayers;
+            setTextElementValueById("total-player-expenses", totalPlayerExpenses);
+        } 
+        else {
+            setTextElementValueById("total-player-expenses", 0);
+            alert("Please provide a valid input");
+        }
+    }
+});
+
